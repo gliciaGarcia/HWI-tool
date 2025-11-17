@@ -29,8 +29,6 @@ echo
 echo "Create heatwave forecast figures"
 python $path_local/mapa_dias_OC_basemap.py --model='monan' --region $region --date $date
 
-#python $path_local/plot_reference_heatwave.py --date-init $date_i --date-end $date_f --region $region
-
 fim=$(date +%s)
 duracao=$((fim - inicio))
 
