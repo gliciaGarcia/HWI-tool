@@ -23,9 +23,13 @@ The routines work in Python version 3.9.21 (It will soon be updated to the lates
 ## **Project Structure**
 
 HWI-tools/
+
 │
+
 ├── data/ # Input datasets (observations, forecasts, climatologies)
+
 ├── shape/ # Shapefiles used for geographic domains
+
 └── tools/ # Python routines for heatwave detection and plotting
 
 
