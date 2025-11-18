@@ -1,16 +1,20 @@
 ## HWI-tools
 This project identifies heat waves in observation and forecasting.
-The routines work in Python version 3.9.21 (It will soon be updated to the latest version.)
+The routines work in Python version 3.11.14
 
 **Dependencies**
 **Libs**
 
-- numpy==1.26.4
+- numpy==2.3.4
 - basemap==1.4.1
-- pandas==2.2.3
-- xarray==2023.6.0
-- matplotlib==3.8.4
-- shapely==2.0.6
+- pandas==2.3.3
+- geopandas==2.0.0
+- xarray==2025.10.1
+- matplotlib==3.10.6
+- shapely==2.1.1
+- joblib==1.5.2
+- pyproj==3.6.1
+- netCDF4==1.7.2
 
 **Folders**
 
