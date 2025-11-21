@@ -1,2 +1,4 @@
+figs/
 data/
+tools/__pycache__/*.pyc
 *.png

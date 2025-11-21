@@ -12,7 +12,12 @@ today=$(date +%Y%m%d)
 date=$1  # YYYYMMDD
 region=$2  # area1-summer or BR or NEB or CE
 
-path_local='/media/glicia/glicia/curso_wmo/parte_2/HWI-tool'
+#path_local='/media/glicia/glicia/curso_wmo/parte_2/HWI-tool'
+path_local=$(pwd)
+
+echo "Estou no diretório:$path_local"
+
+mkdir -p "$path_local/figs"
 
 ################################# Heatwave Forecast ##########################################
 

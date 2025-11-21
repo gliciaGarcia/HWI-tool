@@ -228,10 +228,15 @@ def main():
     model = args.model
     region = args.region
     day = pd.to_datetime(args.date)
+    
+    dir_pesq = '/pesq/share/monan/curso_OMM_INPE_2025/Validation/HeatWave/HWI-tool/'
 
     dir_local = os.getcwd()
-    path_fcst = f'{dir_local}/data/forecast_correction'
-    path_clim = f'{dir_local}/data/era5_reanalysis/climatology.daily.t2m_max.ERA5.1981_2020.nc'
+    #path_fcst = f'{dir_local}/data/forecast_correction'
+    path_fcst = f'{dir_pesq}/data/forecast_correction'
+
+    #path_clim = f'{dir_local}/data/era5_reanalysis/climatology.daily.t2m_max.ERA5.1981_2020.nc'
+    path_clim = f'{dir_pesq}/data/era5_reanalysis/climatology.daily.t2m_max.ERA5.1981_2020.nc'
 
     print(f'\n\nIdentifying heat waves in the forecast - {model.upper()}\n\n')
     previsao_onda_de_calor(
