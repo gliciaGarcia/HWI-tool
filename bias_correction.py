@@ -120,7 +120,8 @@ def main():
     model = args.model
 
     dir_local = os.getcwd()
-    dir_obs = f'{dir_local}/data/era5_reanalysis'
+    #dir_obs = f'{dir_local}/data/era5_reanalysis'
+    dir_obs = '/pesq/share/monan/curso_OMM_INPE_2025/Validation/HeatWave/HWI-tool/data/era5_reanalysis/'
 
     if day.strftime('%Y%m%d') == date.today().strftime('%Y%m%d'):
         time = day - timedelta(days=6)
@@ -137,7 +138,8 @@ def main():
     # Bias Correction
     print(f'\n\nStarting bias correction for {model} forecast - Day {day.strftime("%Y%m%d")}...\n')
 
-    dir_prev = f'{os.getcwd()}/data/monan_forecasts'
+    #dir_prev = f'{os.getcwd()}/data/monan_forecasts'
+    dir_prev = '/pesq/share/monan/curso_OMM_INPE_2025/Validation/HeatWave/HWI-tool/data/monan_forecasts'
 
     hours_lookahead = [18, 42, 66]  # Forecast hour to be corrected
 

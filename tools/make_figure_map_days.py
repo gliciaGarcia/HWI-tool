@@ -12,6 +12,8 @@ from matplotlib.patches import Path, PathPatch
 from mpl_toolkits.basemap import Basemap
 from shapely.geometry import Point
 
+mpl.use("agg")
+
 dir_local = os.getcwd()
 
 warnings.filterwarnings('ignore')

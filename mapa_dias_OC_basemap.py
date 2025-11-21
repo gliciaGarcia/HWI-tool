@@ -6,6 +6,7 @@ import pandas as pd
 from tools.make_figure_map_days import make_figure, make_figure_anomaly
 
 
+
 def arguments():
     parser = argparse.ArgumentParser(prog='mapa_dias_OC_basemap.py')
     parser.add_argument(
@@ -39,6 +40,7 @@ def main():
     day = pd.to_datetime(args.date)
 
     dir = os.getcwd()
+    dir_pesq = '/pesq/share/monan/curso_OMM_INPE_2025/Validation/HeatWave/HWI-tool/'
 
     if model is None:
         print('Especifique o modelo de previsão no terminal!\n')
@@ -58,7 +60,9 @@ def main():
     # ----------------------------------------------------------------
     # ERA5 Climatology
     # ----------------------------------------------------------------
-    data_clim = xr.open_dataset(f'{dir}/data/era5_reanalysis/climatology.daily.t2m_max.ERA5.1981_2020.nc')
+    #data_clim = xr.open_dataset(f'{dir}/data/era5_reanalysis/climatology.daily.t2m_max.ERA5.1981_2020.nc')
+    data_clim = xr.open_dataset(f'{dir_pesq}/data/era5_reanalysis/climatology.daily.t2m_max.ERA5.1981_2020.nc')
+
     # Regrid the source dataset using target coordinates
     data_clim = data_clim.interp(coords=target_coords, method='linear')
     data_clim = data_clim.sel(time=slice(times[0], times[-1]))
@@ -67,8 +71,10 @@ def main():
 
     data_prev['anomalia'] = (('time', 'latitude', 'longitude'), anomaly_tmax)
 
-    file_out = f'previsao_3dias_onda_de_calor_{model}_{region}.png'
-    file_out_anomaly = f'previsao_anomalia_3dias_onda_de_calor_{model}_{region}.png'
+    #file_out = f'previsao_3dias_onda_de_calor_{model}_{region}.png'
+    file_out = f'./figs/previsao_3dias_onda_de_calor_{model}_{region}.png'
+    #file_out_anomaly = f'previsao_anomalia_3dias_onda_de_calor_{model}_{region}.png'
+    file_out_anomaly = f'./figs/previsao_anomalia_3dias_onda_de_calor_{model}_{region}.png'
 
     # Figuras onda de calor 6 dias (Tmax)
     make_figure(
