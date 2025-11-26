@@ -14,15 +14,22 @@ In your terminal, write
 ```
 conda env list
 ```
-The following environments should appear in your terminal:
+The following environments should appear in your terminal
+
 # conda environments:
 #
 base                     /opt/spack/opt/spack/linux-rhel8-zen2/gcc-11.2.0/anaconda3-2022.05-q74p53iarv7fk3uin3xzsgfmov7rqomj
+
 HWI-tool              *  /pesq/share/monan/curso_OMM_INPE_2025/.conda/envs/HWI-tool
+
 cursowmoenv2025          /pesq/share/monan/curso_OMM_INPE_2025/.conda/envs/cursowmoenv2025
+
 cursowmoenv2025_alt      /pesq/share/monan/curso_OMM_INPE_2025/.conda/envs/cursowmoenv2025_alt
+
 pdfview                  /pesq/share/monan/curso_OMM_INPE_2025/.conda/envs/pdfview
+
 vtx_env                  /pesq/share/monan/curso_OMM_INPE_2025/.conda/envs/vtx_env
+
 
 ## If the conda environments appear
 In your terminal, write
