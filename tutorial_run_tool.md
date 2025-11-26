@@ -77,15 +77,35 @@ python id_heatwaves_obs.py --date-init=20240401 --date-end=20240531 --region=BR
 ```
 The tool will check for heatwave events in the ERA5 reanalysis for the period and region specified above.
 
-## If a heat wave event is detected, please view it here:
+## If a heat wave event is detected:
+In your terminal, write
 ```
 python plot_reference_heatwave.py --date-init=20240401 --date-end=20240531 --region=BR
 ```
-For visualization, we use the same arguments.
+The images will be saved in the figs folder.
 
+## To view, follow these steps:
+1. Enter the folder
+In your terminal, write
+```
+cd figs
+```
+2. To view the figures
+In your terminal, write
+```
+module load imagemagick-7.0.8-7-gcc-11.2.0-46pk2go
+```
+```
+display onda_de_calor_2024-04-22_2024-05-04_BR.png
+```
 ---
 
 ## **Heatwave Forecast Workflow**
+
+### Go to your work directory:
+```
+cd /mnt/beegfs/$USER/HWI-tool
+```
 
 The full forecast workflow can be executed using the shell script:
 ./exec_heatwaves_forecast.sh <date> <region>
@@ -100,6 +120,20 @@ The full forecast workflow can be executed using the shell script:
 - **`<date>`** – Forecast initialization date in **YYYYMMDD** format  
 - **`<region>`** – Geographic domain (e.g., `BR`, `NEB`, `CE`, `area1-summer`)
 
+## If a heat wave event is detected in the forecast, please view it here:
+
+## follow these steps:
+1. Enter the folder
+In your terminal, write
+```
+cd figs
+```
+2. To view the figures
+In your terminal, write
+```
+module load imagemagick-7.0.8-7-gcc-11.2.0-46pk2go
+```
+```
+display previsao_anomalia_3dias_onda_de_calor_monan_BR.png
+```
 ---
-
-
