@@ -27,7 +27,7 @@ python $path_local/bias_correction.py --model='monan' --date $date
 
 echo
 echo "Identifying extreme Tmax based on the Tmax climatology + Tmax std; a minimum of 3 consecutive days; area coverage"
-python $path_local/id_heatwaves_fcst.py --model='monan' --region $region --date $date
+python $path_local/id_heatwaves_fcst.py --model='monan' --region $region --date $date --cov=0.25
 
 
 echo
