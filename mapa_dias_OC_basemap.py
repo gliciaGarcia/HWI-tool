@@ -72,14 +72,15 @@ def main():
     data_prev['anomalia'] = (('time', 'latitude', 'longitude'), anomaly_tmax)
 
     #file_out = f'previsao_3dias_onda_de_calor_{model}_{region}.png'
-    file_out = f'./figs/previsao_3dias_onda_de_calor_{model}_{region}.png'
+    file_out = f'./figs/previsao_{len(times)}dias_onda_de_calor_{model}_{region}.png'
     #file_out_anomaly = f'previsao_anomalia_3dias_onda_de_calor_{model}_{region}.png'
-    file_out_anomaly = f'./figs/previsao_anomalia_3dias_onda_de_calor_{model}_{region}.png'
+    file_out_anomaly = f'./figs/previsao_anomalia_{len(times)}dias_onda_de_calor_{model}_{region}.png'
+
 
     # Figuras onda de calor 6 dias (Tmax)
     make_figure(
         data=data_prev,
-        row=1,
+        row=2, # 1
         col=3,
         filename=file_out,
         area=region,
@@ -89,7 +90,7 @@ def main():
     # Figuras onda de calor 6 dias (anomalia de Tmax)
     make_figure_anomaly(
         data=data_prev,
-        row=1,
+        row=2, # 1
         col=3,
         filename=file_out_anomaly,
         area=region,

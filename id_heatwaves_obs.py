@@ -25,6 +25,7 @@ def onda_de_calor(
         day_init,
         day_final,
         area=str,
+        coverage=float,
         dir_reference=str,
         dir_climatology=str,
         dir_out=str,
@@ -120,7 +121,7 @@ def onda_de_calor(
     for idx, value_time in enumerate(nc1.time.data):
         value_time = pd.to_datetime(value_time)
         count_valid = np.count_nonzero(~np.isnan(nc1.sel(time=value_time).crit90.data))
-        if (count_valid/points_land) > cov:  # Spatial extent (default: 0.25).
+        if (count_valid/points_land) > coverage:  # Spatial extent (default: 0.25).
             list_index.append(idx)
 
     # Eliminating list sequences of indices with a size smaller than 3
@@ -191,10 +192,9 @@ def arguments():
     
     )
 
-
     parser.add_argument(
         '--cov',
-        type=str,
+        type=float,
         default=0.25,
         help='Spatial coverage of the heat wave',
 
@@ -227,6 +227,7 @@ def main():
         day_first,
         day_end,
         area=region,
+        coverage=cov,
         dir_reference=path_ref,
         dir_climatology=path_clim,
         dir_out=f'{dir_local}/data/out_HWI/'

@@ -162,7 +162,7 @@ def make_figure(
     datef = f'{pd.to_datetime(data["time"][-1].data).strftime("%d/%m/%Y")}'
     plt.text(
         0.4, 2.40,
-        f'GFS 25km rodada de {datei} 0000 UTC\nVálido até {datef} 1800 UTC',
+        f'MONAN 25km rodada de {datei} 0000 UTC\nVálido até {datef} 1800 UTC',
         transform=ax.transAxes,
         verticalalignment='top',
         fontsize=10,
@@ -285,7 +285,7 @@ def make_figure_anomaly(
     datef = f'{pd.to_datetime(data["time"][-1].data).strftime("%d/%m/%Y")}'
     plt.text(
         0.6, 2.40,
-        f'GFS 25km rodada de {datei} 0000 UTC\nVálido até {datef} 1800 UTC',
+        f'MONAN 25km rodada de {datei} 0000 UTC\nVálido até {datef} 1800 UTC',
         transform=ax.transAxes,
         verticalalignment='top',
         fontsize=10,
