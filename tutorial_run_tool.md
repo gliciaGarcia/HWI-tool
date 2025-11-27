@@ -119,8 +119,9 @@ The full forecast workflow can be executed using the shell script:
 
 
 ### **Example**
-./exec_heatwaves_forecast.sh 20220422 BR
-
+```
+./exec_heatwaves_forecast.sh 20240422 BR
+```
 
 ### **Arguments**
 
