@@ -120,7 +120,7 @@ def onda_de_calor(
     for idx, value_time in enumerate(nc1.time.data):
         value_time = pd.to_datetime(value_time)
         count_valid = np.count_nonzero(~np.isnan(nc1.sel(time=value_time).crit90.data))
-        if (count_valid/points_land) > 0.25:  # Spatial extent (default: 0.25).
+        if (count_valid/points_land) > cov:  # Spatial extent (default: 0.25).
             list_index.append(idx)
 
     # Eliminating list sequences of indices with a size smaller than 3
@@ -188,7 +188,18 @@ def arguments():
         type=str,
         default='BR',
         help='Região: CE ou NEB ou BR ou area1-summer',
+    
     )
+
+
+    parser.add_argument(
+        '--cov',
+        type=str,
+        default=0.25,
+        help='Spatial coverage of the heat wave',
+
+    )
+
 
     return parser.parse_args()
 
@@ -199,6 +210,7 @@ def main():
     region = args.region
     day_first = pd.to_datetime(args.date_init)
     day_end = pd.to_datetime(args.date_end)
+    cov = args.cov
 
     dir_pesq = '/pesq/share/monan/curso_OMM_INPE_2025/Validation/HeatWave/HWI-tool/'
 

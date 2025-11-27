@@ -48,7 +48,7 @@ cd /mnt/beegfs/$USER
 ### Clone the scripts repository:
 In your terminal
 ```
-git clone -b https://github.com/gliciaGarcia/HWI-tool.git
+git clone https://github.com/gliciaGarcia/HWI-tool.git
 ```
 
 ### To check if the HWI-tool folder exists
@@ -80,7 +80,7 @@ HWI-tool/
 ## **To identify the heat wave in ERA5 reanalysis**
 In your terminal, write
 ```
-python id_heatwaves_obs.py --date-init=20240401 --date-end=20240531 --region=BR
+python id_heatwaves_obs.py --date-init=20240401 --date-end=20240531 --region=BR --cov=0.25
 ```
 The tool will check for heatwave events in the ERA5 reanalysis for the period and region specified above.
 
