@@ -141,7 +141,8 @@ def main():
     #dir_prev = f'{os.getcwd()}/data/monan_forecasts'
     dir_prev = '/pesq/share/monan/curso_OMM_INPE_2025/Validation/HeatWave/HWI-tool/data/monan_forecasts'
 
-    hours_lookahead = [18, 42, 66]  # Forecast hour to be corrected
+    hours_lookahead = [18, 42, 66, 90, 114, 138]
+    #hours_lookahead = [18, 42, 66]  # Forecast hour to be corrected
 
     list_ds = []
     for idx, h in enumerate(hours_lookahead):

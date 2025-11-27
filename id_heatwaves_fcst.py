@@ -25,6 +25,7 @@ def previsao_onda_de_calor(
         day,
         model=str,
         area=str,
+        coverage=float,
         dir_forecast=str,
         dir_climatology=str,
         dir_out=str,
@@ -55,7 +56,8 @@ def previsao_onda_de_calor(
     today = day - timedelta(days=0)
 
     # Forecast valid date
-    prev_day = today + timedelta(days=2)
+    prev_day = today + timedelta(days=5) # 2
+
 
     times = pd.date_range(start=today, end=prev_day, freq='D')
     times = times.strftime('2020-%m-%d')
@@ -127,7 +129,7 @@ def previsao_onda_de_calor(
     for idx, value_time in enumerate(nc1.time.data):
         value_time = pd.to_datetime(value_time)
         count_valid = np.count_nonzero(~np.isnan(nc1.sel(time=value_time).crit90.data))
-        if (count_valid/points_land) > cov:  # Spatial extent (default: 0.25).
+        if (count_valid/points_land) > coverage:  # Spatial extent (default: 0.25).
             list_index.append(idx)
 
     # Eliminating list sequences of indices with a size smaller than 3
@@ -222,7 +224,7 @@ def arguments():
 
     parser.add_argument(
         '--cov',
-        type=str,
+        type=float,
         default=0.25,
         help='Spatial coverage of the heat wave',
 
@@ -244,7 +246,7 @@ def main():
 
     dir_local = os.getcwd()
     #path_fcst = f'{dir_local}/data/forecast_correction'
-    path_fcst = f'{dir_pesq}/data/forecast_correction'
+    path_fcst = f'{dir_local}/data/forecast_correction'
 
     #path_clim = f'{dir_local}/data/era5_reanalysis/climatology.daily.t2m_max.ERA5.1981_2020.nc'
     path_clim = f'{dir_pesq}/data/era5_reanalysis/climatology.daily.t2m_max.ERA5.1981_2020.nc'
@@ -254,6 +256,7 @@ def main():
         day,
         model=model,
         area=region,
+        coverage=cov,
         dir_forecast=path_fcst,
         dir_climatology=path_clim,
         dir_out=f'{dir_local}/data/out_HWI/'

@@ -75,6 +75,9 @@ def main():
         if len(days) == 3:
             row = 1
             col = 3
+        if len(days) == 7 or len(days) == 8:
+            row = 2
+            col = 4
         print(f'make figure: heat wave with {len(days)} days')
 
         # Figuras onda de calor
